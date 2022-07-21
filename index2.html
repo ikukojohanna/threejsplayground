@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>My first three.js app</title>
+        <style>
+            body {
+                margin: 0;
+            }
+        </style>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <canvas id="c"></canvas>
+        <div id="info">Description</div>
+
+        <script src="three.js"></script>
+        <script type="module">
+            import * as THREE from "./js/three.module.js";
+            import { GLTFLoader } from "./examples/jsm/loaders/GLTFLoader.js";
+            import { OrbitControls } from "./examples/jsm/controls/OrbitControls.js";
+            //----------- ----------- ----------- SETUP---------------------------------
+            //scene is container that holds all the objects and lights
+            const scene = new THREE.Scene();
+
+            //in order to view things inside scene we need camera
+            const fov = 75;
+            const aspect = window.innerWidth / window.innerHeight;
+            const near = 0.1;
+            const far = 1000;
+            const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+            // render out actual graphics to the scene... needs to know which DOM element to use(canvas)
+
+            const canvas = document.querySelector("#c");
+            const renderer = new THREE.WebGLRenderer({ canvas });
+
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.setZ(30);
+            camera.position.setX(-3);
+
+            // Torus
+
+            const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const material = new THREE.MeshStandardMaterial({
+                color: 0xff6347,
+            });
+
+            const torus = new THREE.Mesh(geometry, material);
+
+            scene.add(torus);
+
+            //lights
+            const pointLight = new THREE.PointLight(0xffffff);
+            pointLight.position.set(5, 5, 5);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff);
+            scene.add(pointLight, ambientLight);
+
+            scene.add(pointLight, ambientLight);
+
+            //helpers
+            const lightHelper = new THREE.PointLightHelper(pointLight);
+            const gridHelper = new THREE.GridHelper(200, 50);
+            scene.add(lightHelper, gridHelper);
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+
+            //animate/render
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                torus.rotation.z += 0.01;
+
+                controls.update();
+
+                renderer.render(scene, camera);
+            }
+            animate();
+        </script>
+    </body>
+</html>
+
+<!--          
+                const material = new THREE.MeshBasicMaterial({ map: texture });
+
+    
+   
+-->

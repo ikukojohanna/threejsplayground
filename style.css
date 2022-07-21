@@ -1,0 +1,131 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+* {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+:root {
+    --spacing: 350px;
+
+    font-style: normal;
+}
+
+img:hover {
+    cursor: pointer;
+}
+.logo {
+    height: 100px;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+main {
+    width: 100vw;
+    color: white;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    margin: 0px auto;
+    padding: 200px 0px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+h1,
+h2,
+h3,
+blockquote {
+    font-style: normal;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header {
+    background: var(--dark-bg);
+    grid-column: 2 / span 5;
+    font-size: 1rem;
+    padding: 2rem;
+    margin-bottom: var(--spacing);
+    text-align: center;
+}
+
+section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+}
+.skipsection {
+    text-align: center;
+    padding-bottom: 2%;
+    font-size: 40px;
+}
+.bio {
+    display: inline-flex;
+    padding: 5%;
+    text-align: justify;
+    flex-direction: column;
+}
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+blockquote p {
+    font-size: 2rem;
+    display: inline;
+    line-height: 1;
+}
+
+.left {
+    grid-column: 6 / 12;
+}
+
+.profilePicLarge {
+    height: 50vh;
+    width: 50vh;
+    padding: 5%;
+    box-shadow: 0 0 10px 1px #ffffff;
+    border-radius: 50px;
+    opacity: 0;
+}
+.content {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+}
+#profile {
+    grid-column: 2 / span 10;
+    background-color: rgba(255, 255, 255, 0.041);
+
+    padding: 5%;
+    border-radius: 50px;
+    box-shadow: 0 0 20px 1px #ffffff6b;
+    margin-bottom: 10%;
+}
+
+#findUsers {
+    grid-column: 2 / span 10;
+    background-color: rgba(255, 255, 255, 0.041);
+    padding: 5%;
+    border-radius: 50px;
+    box-shadow: 0 0 15px 1px #ffffffae;
+    margin-top: 40%;
+    margin-bottom: 10%;
+}
